@@ -1,5 +1,5 @@
 import telebot
-from telebot import types
+from telebot import types, apihelper
 
 # Direitos reservados 2024, Empresa Selahzar S.A.
 __author__ = "Selahzar S.A."
@@ -20,7 +20,11 @@ def send_welcome(message):
     markup.add(instagram_button)
 
     # Enviando a mensagem com o botão
-    bot.send_message(message.chat.id, "Bem-vindo ao bot da Selahzar S.A.! Clique abaixo para nos visitar no Instagram.", reply_markup=markup)
+    bot.send_message(message.chat.id, "Bem-vindo ao bot da Selahzar S.A.! Clique abaixo para nos visitar no Instagram. ", reply_markup=markup)
 
-# Mantém o bot rodando
-bot.infinity_polling()
+# Tentativa de manter o bot rodando e lidar com exceções
+try:
+    bot.infinity_polling()
+except apihelper.ApiTelegramException as e:
+    print(f"Erro detectado: {e}")
+    # Lógica adicional para lidar com o erro ou reiniciar o bot pode ser adicionada aqui.
