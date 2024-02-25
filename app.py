@@ -7,7 +7,7 @@ def start(update, context):
 
 def main():
     # Inicializar o updater com o token do seu bot
-    updater = Updater("INSIRA_SEU_TOKEN_AQUI", use_context=True)
+    updater = Updater("6788247666:AAE_9h3yeE6uRHz__MnJs5UXBsbtR4pj1JA", use_context=True)
 
     # Obter o despachante para registrar os manipuladores
     dp = updater.dispatcher
