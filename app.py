@@ -16,7 +16,7 @@ def enviar_mensagem():
             print("Mensagem enviada com sucesso")
         except Exception as e:
             print(f"Erro ao enviar mensagem: {e}")
-        time.sleep(5)
+        time.sleep(1)
 
 # Iniciar o envio de mensagens
 enviar_mensagem()
