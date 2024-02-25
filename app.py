@@ -16,7 +16,7 @@ def main() -> None:
 
     # Adiciona a tarefa de keep-alive para ser executada a cada 5 minutos
     jq = application.job_queue
-    jq.run_repeating(keep_alive, interval=300, first=0)
+    jq.run_repeating(keep_alive, interval=60, first=0)
 
     application.run_polling()
 
