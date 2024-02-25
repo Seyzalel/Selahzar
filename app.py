@@ -1,25 +1,16 @@
-from telegram.ext import Updater, CommandHandler
+from telegram import Update
+from telegram.ext import Application, CommandHandler, ContextTypes
 
-# Função para responder ao comando /start
-def start(update, context):
-    # Enviar a mensagem "Hello World!"
-    update.message.reply_text('Hello World!')
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    await context.bot.send_message(chat_id=update.effective_chat.id, text="Hello World")
 
-def main():
-    # Inicializar o updater com o token do seu bot
-    updater = Updater("6788247666:AAE_9h3yeE6uRHz__MnJs5UXBsbtR4pj1JA", use_context=True)
+def main() -> None:
+    application = Application.builder().token('6788247666:AAE_9h3yeE6uRHz__MnJs5UXBsbtR4pj1JA').build()
 
-    # Obter o despachante para registrar os manipuladores
-    dp = updater.dispatcher
+    start_handler = CommandHandler('start', start)
+    application.add_handler(start_handler)
 
-    # Adicionar um manipulador para o comando /start
-    dp.add_handler(CommandHandler("start", start))
-
-    # Iniciar o bot
-    updater.start_polling()
-
-    # Manter o bot em execução até que Ctrl + C seja pressionado
-    updater.idle()
+    application.run_polling()
 
 if __name__ == '__main__':
     main()
