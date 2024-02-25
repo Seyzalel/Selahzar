@@ -2,7 +2,7 @@ from telegram import Update
 from telegram.ext import Application, CommandHandler, ContextTypes, JobQueue
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await context.bot.send_message(chat_id=update.effective_chat.id, text="Hello World")
+    await context.bot.send_message(chat_id=update.effective_chat.id, text="Welcome to Selahzar Bot!")
 
 async def keep_alive(context: ContextTypes.DEFAULT_TYPE) -> None:
     """Função para enviar uma mensagem periódica e manter o bot ativo."""
