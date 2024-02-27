@@ -1,12 +1,12 @@
 import openai
 
 # Substitua 'sua_chave_api_aqui' pela sua chave de API da OpenAI
-openai.api_key = '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'
+openai.api_key = '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'
 
 def get_chatgpt_response(prompt_text):
     try:
         response = openai.Completion.create(
-          engine="text-davinci-004",  # Especifica o modelo DaVinci
+          engine="text-davinci-003",  # Especifica o modelo DaVinci
           prompt=prompt_text,
           temperature=1.0,  # Configura a temperatura para o valor máximo (aumenta a criatividade)
           max_tokens=4096,  # Configura o número máximo de tokens permitido pela API para uma única resposta
