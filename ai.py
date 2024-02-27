@@ -1,7 +1,7 @@
 import openai
 
 # Substitua 'sua_chave_api_aqui' pela sua chave de API da OpenAI
-openai.api_key = 'sua_chave_api_aqui'
+openai.api_key = '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'
 
 def get_chatgpt_response(prompt_text):
     try:
