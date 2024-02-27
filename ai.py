@@ -1,26 +1,16 @@
 import openai
 
-# Substitua 'sua_chave_api_aqui' pela sua chave de API da OpenAI
-openai.api_key = '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'
+# Substitua 'your_api_key_here' pela sua chave da API da OpenAI
+openai.api_key = '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'
 
-def get_chatgpt_response(prompt_text):
-    try:
-        response = openai.Completion.create(
-          engine="text-davinci-003",  # Especifica o modelo DaVinci
-          prompt=prompt_text,
-          temperature=1.0,  # Configura a temperatura para o valor máximo (aumenta a criatividade)
-          max_tokens=4096,  # Configura o número máximo de tokens permitido pela API para uma única resposta
-          top_p=1.0,  # Usa nucleus sampling com um valor que permite a maior diversidade
-          frequency_penalty=0,
-          presence_penalty=0
-        )
-        return response.choices[0].text.strip()
-    except Exception as e:
-        return f"Ocorreu um erro ao gerar a resposta: {str(e)}"
+response = openai.Completion.create(
+  engine="text-davinci-003", # Substitua pelo identificador correto do modelo se necessário
+  prompt="Boa noite!",
+  temperature=1.0, # Configuração da temperatura para o máximo
+  max_tokens=100, # Ajuste conforme necessário para o comprimento da resposta desejado
+  top_p=1,
+  frequency_penalty=0,
+  presence_penalty=0
+)
 
-# Solicita ao usuário que insira o texto
-user_input = input("Metapower: ")
-
-# Gera e imprime a resposta do modelo
-response_text = get_chatgpt_response(user_input)
-print(response_text)
+print(response.choices[0].text.strip())
